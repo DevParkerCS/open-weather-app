@@ -3,14 +3,11 @@ import axios from "axios"
 import { useEffect, useRef, useState } from "react"
 
 function Dashboard() {
-    const API_KEY = "45c80195ddc604ddc9cf4681c3fa1b8b"
-    const location = "Seattle"
-
     const [weatherData, setWeatherData] = useState(null)
     const locationInput = useRef("")
 
     function fetchLocationData() {
-        axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${locationInput.current}&limit=1&appid=${API_KEY}`)
+        axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${locationInput.current}&limit=1&appid=${process.env.REACT_APP_API_KEY}`)
             .then((res) => {
                 setWeatherData(res.data[0])
             })
