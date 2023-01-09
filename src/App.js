@@ -7,7 +7,8 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path={"/Dashboard"} element={<Dashboard />} />
+        <Route path={"/"} element={<Dashboard />} />
+        <Route path={"*"} element={<h1>Fuck You</h1>} />
       </Routes>
     </Router>
   );
